@@ -1,8 +1,32 @@
-import React from 'react'
-import phoneImg from './images/phone.svg'
+import React from "react";
+import phoneImg from "./images/phone.svg";
+import { useGlobalAppContext } from "./context";
 
 const Hero = () => {
-  return <h2>hero component</h2>
-}
+  const { deactivateSubmenu } = useGlobalAppContext();
+  return (
+    <section className="hero" onMouseOver={deactivateSubmenu}>
+      <div className="hero-center">
+        <article className="hero-info">
+          <h1>
+            Payments Infrastructure <br />
+            for the internet
+          </h1>
+          <p>
+            Millions of companies of all sizes—from startups to Fortune 500s—use
+            Stripe’s software and APIs to accept payments, send payouts, and
+            manage their businesses online.
+          </p>
+          <button className="btn" type="button">
+            Start now
+          </button>
+        </article>
+        <article className="hero-images">
+          <img src={phoneImg} alt="phone_image" className="phone-img"></img>
+        </article>
+      </div>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;
